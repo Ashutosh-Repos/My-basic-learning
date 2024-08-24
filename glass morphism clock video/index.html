@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Morphism Analog Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="like">
+        <img src="likepng.png" alt="">
+    </div>
+    <div class="subs">
+        <img src="SUBSCRIBE.png" alt="">
+    </div>
+    <div class="clock">
+        <span style="--x:1;"><p>1</p></span>
+        <span style="--x:2;"><p>2</p></span>
+        <span style="--x:3;"><p>3</p></span>
+        <span style="--x:4;"><p>4</p></span>
+        <span style="--x:5;"><p>5</p></span>
+        <span style="--x:6;"><p>6</p></span>
+        <span style="--x:7;"><p>7</p></span>
+        <span style="--x:8;"><p>8</p></span>
+        <span style="--x:9;"><p>9</p></span>
+        <span style="--x:10;"><p>10</p></span>
+        <span style="--x:11;"><p>11</p></span>
+        <span style="--x:12;"><p>12</p></span>
+        <div id="centerdot"></div>
+        <div class="arrowsguide" id="hours">
+            <div id="hr">
+            <i class="line"></i>
+            <i class="pointer"></i>
+            </div>
+        </div>
+        <div class="arrowsguide" id="minutes">
+            <div id="min">
+            <i class="line"></i>
+            <i class="pointer"></i>
+            </div>
+        </div>
+        <div class="arrowsguide" id="seconds">
+            <div id="sec">
+                <i class="line"></i>
+                <i class="pointer"></i>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelector(".container"), {
+		max: 25,
+		speed: 400,
+        glare: true,  // if it should have a "glare" effect
+        "max-glare": 0.25,
+	    });
+
+        let hours = document.getElementById('hours');
+        let minutes = document.getElementById('minutes');
+        let seconds = document.getElementById('seconds');
+
+        setInterval(() =>{
+            let day = new Date();
+            let hh = day.getHours()*30;
+            let mm = day.getMinutes()*6;
+            let ss = day.getSeconds()*6;
+
+            hours.style.transform = `rotateZ(${hh + (mm/12)}deg)`;
+            minutes.style.transform = `rotateZ(${mm}deg)`;
+            seconds.style.transform = `rotateZ(${ss}deg)`;
+        })
+    </script>
+</body>
+</html>

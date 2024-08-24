@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.like{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #4285f4,blue);
+    transform: translateX(-75%)translateY(-25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.subs{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #f96565,#c10a0a);
+    transform: translateX(50%)translateY(25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.like img , .subs img{
+    width: 300px;
+}
+.clock{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(7px);
+}
+.clock span{
+    position: absolute;
+    text-align: center;
+    inset: 10px;
+    transform: rotate(calc(30deg*var(--x)));
+    font-size: 25px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    font-family: Poppins,sans-serif;
+}
+.clock span p{
+    display: inline-block;
+    transform: rotate(calc(-30deg*var(--x)));
+}
+#centerdot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+}
+.arrowsguide{
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    top: 60px;
+    left: 60px;
+    right: 60px;
+    bottom: 60px;
+}
+.arrowsguide div{
+    position: absolute;
+    width: 8px;
+    height: 50%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: bottom;
+}
+.arrowsguide div .line{
+    position: absolute;
+    bottom: 0;
+}
+#hr .line{
+    background: red;
+    height: 65%;
+    width: 8px;
+}
+#min .line{
+    background: blue;
+    height: 80%;
+    width: 6px;
+}
+#sec .line{
+    background: gray;
+    height: 85%;
+    width: 2px;
+}
+.arrowsguide div .pointer{
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 0;
+    transform: rotate(45deg);
+}
+#hr .pointer{
+    background: linear-gradient(135deg,red 50%,transparent 50%);
+}
+#min .pointer{
+    background: linear-gradient(135deg,blue 50%,transparent 50%);
+}
+#sec .pointer{
+    background: linear-gradient(135deg,gray 50%,transparent 50%);
+}
